@@ -1,0 +1,574 @@
+.ranking-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #15103a 0%, #0d0a27 50%, #060515 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ranking-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 20px 32px;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Header banner */
+.ranking-header-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+}
+
+.tournament-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 14, 45, 0.85);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #c4b5fd;
+}
+
+.cycle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(18, 14, 45, 0.85);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.cycle-icon {
+  font-size: 10px;
+}
+
+/* Title block */
+.ranking-title-block {
+  margin-bottom: 24px;
+}
+
+.hall-of-fame-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin: 0 0 10px;
+}
+
+.title-glow-line {
+  width: 180px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #a855f7, transparent);
+  margin: 0 auto 10px;
+  border-radius: 2px;
+  box-shadow: 0 0 12px #a855f7;
+}
+
+.ranking-subtitle {
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #9d99c4;
+  margin: 0;
+}
+
+/* Podium Card Container */
+.podium-card-container {
+  width: 100%;
+  background: rgba(14, 11, 35, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 20px;
+  padding: 28px 24px 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.podium-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.podium-card {
+  position: relative;
+  background: rgba(18, 14, 45, 0.85);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 16px;
+  padding: 20px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.podium-card.is-you {
+  border-color: #a855f7;
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.3);
+}
+
+/* 1st Place Apex Card (Gold) */
+.rank-1-card {
+  border-color: rgba(234, 179, 8, 0.6);
+  box-shadow: 0 0 28px rgba(234, 179, 8, 0.2);
+  padding-top: 28px;
+  transform: translateY(-8px);
+}
+
+.gold-medal-wrapper {
+  position: absolute;
+  top: -18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.medal-ribbon-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+  color: #1a1403;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 0 14px rgba(250, 204, 21, 0.6);
+  margin-bottom: -6px;
+  z-index: 2;
+}
+
+.gold-apex-badge {
+  background: #eab308;
+  color: #1a1403;
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Podium Badges */
+.podium-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.badge-silver {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1.5px solid #a855f7;
+  color: #d8b4fe;
+}
+
+.badge-bronze {
+  background: rgba(249, 115, 22, 0.2);
+  border: 1.5px solid #f97316;
+  color: #fdba74;
+}
+
+.you-pill {
+  background: #7c3aed;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.gold-you {
+  background: #ca8a04;
+  color: #000;
+}
+
+.podium-role-label {
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #9d99c4;
+  margin-bottom: 4px;
+}
+
+.gold-role { color: #facc15; }
+.bronze-role { color: #fdba74; }
+
+.podium-player-name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.gold-name {
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.podium-score-val {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.gold-score {
+  color: #facc15;
+  font-size: 23px;
+  text-shadow: 0 0 16px rgba(250, 204, 21, 0.4);
+}
+
+.pts-small {
+  font-size: 11px;
+  color: #a78bfa;
+}
+
+.gold-score .pts-small {
+  color: #eab308;
+}
+
+.podium-streak-label {
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 10px;
+  color: #79769e;
+  margin: 4px 0 12px;
+}
+
+.gold-streak {
+  color: #a3a0c2;
+}
+
+/* Pedestals */
+.podium-pedestal {
+  position: relative;
+  width: 100%;
+  background: rgba(10, 8, 26, 0.75);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pedestal-silver { height: 50px; }
+.pedestal-gold { height: 75px; }
+.pedestal-bronze { height: 42px; }
+
+.pedestal-accent-line {
+  width: 3px;
+  height: 80%;
+  background: #a855f7;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #a855f7;
+}
+
+.gold-line {
+  background: #eab308;
+  box-shadow: 0 0 12px #eab308;
+}
+
+.bronze-line {
+  background: #f97316;
+  box-shadow: 0 0 10px #f97316;
+}
+
+/* Empty podium slot */
+.podium-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.empty-slot-text {
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #58557c;
+  letter-spacing: 1px;
+  margin: 12px 0;
+}
+
+/* Lower List: Ranked Concurrent Nodes */
+.ranked-nodes-card {
+  width: 100%;
+  background: rgba(14, 11, 35, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+
+.nodes-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  color: #9d99c4;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  margin-bottom: 12px;
+}
+
+.nodes-icon {
+  color: #a855f7;
+}
+
+.nodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(18, 14, 45, 0.65);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+}
+
+.node-row:hover {
+  background: rgba(26, 20, 62, 0.85);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.node-row.node-current {
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.15);
+}
+
+.node-rank-badge {
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c4b5fd;
+  width: 32px;
+  text-align: left;
+}
+
+.node-info {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.node-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.node-name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.node-you-tag {
+  background: #7c3aed;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.node-streak {
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #79769e;
+}
+
+.node-score-val {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  color: #e2e0f5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.node-score-val strong {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.node-dot {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.nodes-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #79769e;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.live-refresh-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #34d399;
+}
+
+.dot-green {
+  letter-spacing: -2px;
+}
+
+/* Action row */
+.ranking-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-back-game {
+  background: rgba(18, 14, 45, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back-game:hover {
+  background: rgba(139, 92, 246, 0.25);
+  color: #ffffff;
+}
+
+.btn-thankyou {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+  transition: all 0.2s ease;
+}
+
+.btn-thankyou:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(147, 51, 234, 0.6);
+}
+
+/* Empty state */
+.leaderboard-empty-state {
+  padding: 30px 10px;
+}
+
+.empty-icon {
+  font-size: 32px;
+  color: #a855f7;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.leaderboard-empty-state h3 {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.leaderboard-empty-state p {
+  font-size: 13px;
+  color: #8b88b0;
+  margin: 0;
+}
+
+/* Bottom footer */
+.ranking-bottom-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #79769e;
+}
+
+@media (max-width: 650px) {
+  .podium-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rank-1-card {
+    order: -1;
+    transform: none;
+  }
+  .ranking-header-banner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

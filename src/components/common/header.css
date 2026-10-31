@@ -1,0 +1,202 @@
+.void-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(13, 11, 35, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(155, 109, 255, 0.15);
+  box-sizing: border-box;
+  z-index: 50;
+}
+
+.void-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.void-logo-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #090818;
+  border: 1px solid rgba(155, 109, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(155, 109, 255, 0.2);
+}
+
+.void-logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.void-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.void-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.void-brand-name {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.void-tag-pill {
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.void-sub-protocol {
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 10px;
+  color: #8b88b0;
+  letter-spacing: 1px;
+}
+
+.void-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.void-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.void-op-badge {
+  background: rgba(18, 15, 45, 0.85);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #e2e0f5;
+}
+
+.mono-muted {
+  color: #7a769e;
+}
+
+.op-highlight {
+  color: #a78bfa;
+  font-weight: 700;
+}
+
+.id-highlight {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.void-status-badge {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.void-btn-hall-of-fame {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  color: #c4b5fd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.void-btn-hall-of-fame:hover {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: #a78bfa;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
+  transform: translateY(-1px);
+}
+
+.void-btn-sound {
+  background: rgba(18, 15, 45, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #e2e0f5;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.void-btn-sound:hover {
+  border-color: #a78bfa;
+  background: rgba(139, 92, 246, 0.25);
+}
+
+.void-btn-sound.muted {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .void-header {
+    padding: 10px 14px;
+  }
+  .void-brand-name {
+    font-size: 15px;
+  }
+  .void-sub-protocol,
+  .void-status-badge {
+    display: none;
+  }
+  .void-op-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}

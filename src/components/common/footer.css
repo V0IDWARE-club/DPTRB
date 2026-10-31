@@ -1,0 +1,70 @@
+.void-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(10, 8, 26, 0.85);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(155, 109, 255, 0.15);
+  box-sizing: border-box;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  color: #79769e;
+  z-index: 40;
+}
+
+.void-footer-left,
+.void-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 6px #a855f7;
+}
+
+.mono-stat strong {
+  color: #d8b4fe;
+}
+
+.void-btn-abort {
+  background: rgba(22, 18, 48, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #c4b5fd;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.void-btn-abort:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #f43f5e;
+  color: #f43f5e;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.25);
+}
+
+.void-footer-center-placeholder {
+  color: #4c486e;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .void-footer {
+    padding: 8px 12px;
+    font-size: 9px;
+  }
+  .void-footer-left {
+    display: none;
+  }
+}
