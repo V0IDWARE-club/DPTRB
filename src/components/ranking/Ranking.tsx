@@ -286,9 +286,6 @@ export const Ranking: React.FC<RankingProps> = ({
         <div className="ranking-footer-credit">
           Made all by Zabour Reihana
         </div>
-        <div className="footer-right-info">
-          <span>STITCH // REACTION ENGINE v2.5</span>
-        </div>
       </footer>
     </div>
   );

@@ -241,7 +241,6 @@ export const UserScore: React.FC<UserScoreProps> = ({
         <div className="footer-right-info">
           <span className="footer-dot">•</span>
           <span>VOIDWARE CS CLUB</span>
-          <span className="footer-sep">STITCH // REACTION ENGINE v2.5</span>
         </div>
       </footer>
     </div>

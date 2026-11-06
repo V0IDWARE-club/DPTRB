@@ -75,7 +75,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
 
             <div className="social-pills-row">
               <a
-                href="https://instagram.com/voidware.club"
+                href="https://www.instagram.com/voidware.club?cplk=MWNqazB1cWF6M3JpcA=="
                 target="_blank"
                 rel="noreferrer"
                 className="social-node-pill"
@@ -86,7 +86,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
               </a>
 
               <a
-                href="https://github.com/VOIDWARE-club"
+                href="https://github.com/V0IDWARE-club"
                 target="_blank"
                 rel="noreferrer"
                 className="social-node-pill"
@@ -141,9 +141,6 @@ export const ThankYou: React.FC<ThankYouProps> = ({
         </div>
         <div className="thankyou-footer-credit">
           Made all by Zabour Reihana
-        </div>
-        <div className="footer-right-info">
-          <span>STITCH // REACTION ENGINE v2.5</span>
         </div>
       </footer>
     </div>
