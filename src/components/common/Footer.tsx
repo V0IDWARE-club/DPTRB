@@ -41,22 +41,23 @@ export const Footer: React.FC<FooterProps> = ({
         </span>
       </div>
 
-      {showAbortButton && onAbort ? (
-        <button
-          className="void-btn-abort"
-          onClick={() => {
-            soundFX.playClick();
-            onAbort();
-          }}
-          title="Abort current operation"
-        >
-          ABORT PROTOCOL [ESC]
-        </button>
-      ) : (
-        <div className="void-footer-center-placeholder">
-          <span>// CS_CLUB_2025</span>
-        </div>
-      )}
+      <div className="void-footer-center">
+        {showAbortButton && onAbort ? (
+          <button
+            className="void-btn-abort"
+            onClick={() => {
+              soundFX.playClick();
+              onAbort();
+            }}
+            title="Abort current operation"
+          >
+            ABORT PROTOCOL [ESC]
+          </button>
+        ) : null}
+        <span className="void-footer-credit-text">
+          Made all by Zabour Reihana
+        </span>
+      </div>
 
       <div className="void-footer-right">
         <span className="mono-stat">{rightText}</span>

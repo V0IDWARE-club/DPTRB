@@ -4,6 +4,7 @@ import { Footer } from "../common/Footer";
 import { apiService } from "../../services/apiService";
 import { socketService } from "../../services/socketService";
 import { soundFX } from "../../utils/soundEffects";
+import { formatPlayerId } from "../../utils/formatters";
 import type { Player, GameSession } from "../../types";
 import "./waiting-room.css";
 
@@ -162,9 +163,11 @@ export const WaitingRoom: React.FC<WaitingRoomProps> = ({
                   <div
                     key={p.id}
                     className={`operator-chip ${isCurrent ? "current" : ""}`}
+                    title={`Player ID: ${p.id}`}
                   >
                     <span className="chip-prefix">&gt;</span>
                     <span className="chip-name">{p.name}</span>
+                    <span className="chip-player-id">[{formatPlayerId(p.id)}]</span>
                     {isCurrent && <span className="chip-badge">YOU</span>}
                   </div>
                 );

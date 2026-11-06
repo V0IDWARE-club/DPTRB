@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logoImg from "../../assets/v0idware-icon.png";
 import { soundFX } from "../../utils/soundEffects";
+import { formatPlayerId } from "../../utils/formatters";
 import "./header.css";
 
 interface HeaderProps {
@@ -28,11 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  const formattedId = operatorId
-    ? operatorId.startsWith("0x")
-      ? operatorId
-      : `0x${operatorId.slice(0, 4).toUpperCase()}`
-    : "0x9B6D";
+  const formattedId = formatPlayerId(operatorId);
 
   return (
     <header className="void-header">
@@ -53,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="void-header-right">
         {operatorName && (
-          <div className="void-pill void-op-badge">
+          <div className="void-pill void-op-badge" title={`Player ID: ${operatorId || ''}`}>
             <span className="mono-muted">// OP:</span>{" "}
             <strong className="op-highlight">{operatorName}</strong>{" "}
             <span className="mono-muted">ID:</span>{" "}

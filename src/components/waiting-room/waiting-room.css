@@ -171,6 +171,16 @@
   color: #ffffff;
 }
 
+.chip-name {
+  font-weight: 700;
+}
+
+.chip-player-id {
+  font-size: 9.5px;
+  color: #a78bfa;
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+}
+
 .chip-prefix {
   color: #a78bfa;
 }

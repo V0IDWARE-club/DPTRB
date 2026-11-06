@@ -20,7 +20,7 @@ The application strictly follows the event sequence matching the reference desig
    - All connected participants transition to gameplay simultaneously when countdown reaches zero.
 
 3. **Screen 3 — Gameplay (`components/game/Game.tsx`)**:
-   - 30-second rapid-fire reaction round with 3 Neural Cores (lives).
+   - 45-second rapid-fire reaction round with 4 Neural Cores (lives).
    - Dynamic directives: `CLICK <COLOR>!` or `DON'T CLICK <COLOR>!`.
    - Real physics ball-simulation inside a circular radar arena with collision and boundary reflection (`logic/gameEngine.ts`).
    - Speed acceleration based on score (`SPD: 1.0x` to `2.2x`).

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Header } from "../common/Header";
 import { apiService } from "../../services/apiService";
 import { soundFX } from "../../utils/soundEffects";
+import { formatPlayerId } from "../../utils/formatters";
 import type { Player, PlayerResult } from "../../types";
 import "./user-score.css";
 
@@ -69,7 +70,7 @@ export const UserScore: React.FC<UserScoreProps> = ({
     <div className="score-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-30s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
 
@@ -89,7 +90,7 @@ export const UserScore: React.FC<UserScoreProps> = ({
             <strong>{player.session_id.toUpperCase()}</strong>
           </span>
           <span className="pill-divider">|</span>
-          <span className="mono-muted">SYS_ID: 994-REFLEX</span>
+          <span className="mono-muted">ID: {formatPlayerId(player.id)}</span>
         </div>
 
         {/* Headline */}
@@ -102,7 +103,8 @@ export const UserScore: React.FC<UserScoreProps> = ({
           <h1 className="protocol-complete-title">PROTOCOL COMPLETE</h1>
 
           <p className="protocol-subtitle">
-            Operator <strong className="op-name">{player.name}</strong> // Neural
+            Operator <strong className="op-name">{player.name}</strong>{" "}
+            <span className="op-id-tag">[{formatPlayerId(player.id)}]</span> // Neural
             reflexes successfully captured &amp; authenticated.
           </p>
         </div>
@@ -171,14 +173,14 @@ export const UserScore: React.FC<UserScoreProps> = ({
                 <span className="substat-icon">♥</span>
               </div>
               <div className="substat-cores-dots">
-                {[0, 1, 2].map((idx) => (
+                {[0, 1, 2, 3].map((idx) => (
                   <span
                     key={idx}
                     className={`core-circle ${idx < lives ? "intact" : "lost"}`}
                   ></span>
                 ))}
               </div>
-              <div className="substat-sublabel">{lives}/3 CORES INTACT</div>
+              <div className="substat-sublabel">{lives}/4 CORES INTACT</div>
             </div>
           </div>
 
@@ -232,6 +234,9 @@ export const UserScore: React.FC<UserScoreProps> = ({
           <span>REFLEX_TICK: 0x9B6DFF</span>
           <span className="footer-sep">SYS_CHECKSUM_OK</span>
           <span>v2.5_PROD</span>
+        </div>
+        <div className="score-footer-credit">
+          Made all by Zabour Reihana
         </div>
         <div className="footer-right-info">
           <span className="footer-dot">•</span>

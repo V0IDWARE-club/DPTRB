@@ -3,6 +3,7 @@ import { Header } from "../common/Header";
 import { apiService } from "../../services/apiService";
 import { socketService } from "../../services/socketService";
 import { soundFX } from "../../utils/soundEffects";
+import { formatPlayerId } from "../../utils/formatters";
 import type { Player, LeaderboardResponse } from "../../types";
 import "./ranking.css";
 
@@ -69,7 +70,7 @@ export const Ranking: React.FC<RankingProps> = ({
     <div className="ranking-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-30s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
 
@@ -120,6 +121,7 @@ export const Ranking: React.FC<RankingProps> = ({
                     )}
                     <div className="podium-role-label">CONTENDER</div>
                     <div className="podium-player-name">{rank2.player_name}</div>
+                    <div className="podium-player-id">ID: {formatPlayerId(rank2.player_id)}</div>
                     <div className="podium-score-val">
                       {rank2.final_score.toLocaleString()} <span className="pts-small">PTS</span>
                     </div>
@@ -150,6 +152,7 @@ export const Ranking: React.FC<RankingProps> = ({
                     )}
                     <div className="podium-role-label gold-role">CHAMPION</div>
                     <div className="podium-player-name gold-name">{rank1.player_name}</div>
+                    <div className="podium-player-id gold-id">ID: {formatPlayerId(rank1.player_id)}</div>
                     <div className="podium-score-val gold-score">
                       {rank1.final_score.toLocaleString()} <span className="pts-small">PTS</span>
                     </div>
@@ -177,6 +180,7 @@ export const Ranking: React.FC<RankingProps> = ({
                     )}
                     <div className="podium-role-label bronze-role">OPERATIVE</div>
                     <div className="podium-player-name">{rank3.player_name}</div>
+                    <div className="podium-player-id">ID: {formatPlayerId(rank3.player_id)}</div>
                     <div className="podium-score-val">
                       {rank3.final_score.toLocaleString()} <span className="pts-small">PTS</span>
                     </div>
@@ -224,6 +228,7 @@ export const Ranking: React.FC<RankingProps> = ({
                     <div className="node-info">
                       <div className="node-name-row">
                         <span className="node-name">{entry.player_name}</span>
+                        <span className="node-player-id">[{formatPlayerId(entry.player_id)}]</span>
                         {isCurrent && <span className="node-you-tag">YOU</span>}
                       </div>
                       <span className="node-streak">Streak x{entry.best_streak}</span>
@@ -277,6 +282,9 @@ export const Ranking: React.FC<RankingProps> = ({
         <div className="footer-left-info">
           <span className="footer-dot">•</span>
           <span>VOIDWARE CS CLUB</span>
+        </div>
+        <div className="ranking-footer-credit">
+          Made all by Zabour Reihana
         </div>
         <div className="footer-right-info">
           <span>STITCH // REACTION ENGINE v2.5</span>

@@ -20,7 +20,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
     <div className="thankyou-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-30s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
       <div className="bg-coord coord-bc">// CS_CLUB_2025</div>
@@ -138,6 +138,9 @@ export const ThankYou: React.FC<ThankYouProps> = ({
         <div className="footer-left-info">
           <span className="footer-dot">•</span>
           <span>VOIDWARE CS CLUB</span>
+        </div>
+        <div className="thankyou-footer-credit">
+          Made all by Zabour Reihana
         </div>
         <div className="footer-right-info">
           <span>STITCH // REACTION ENGINE v2.5</span>

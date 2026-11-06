@@ -234,11 +234,23 @@
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+}
+
+.podium-player-id {
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #a78bfa;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.gold-id {
+  color: #fde047;
 }
 
 .gold-name {
@@ -415,6 +427,12 @@
   color: #ffffff;
 }
 
+.node-player-id {
+  font-family: ui-monospace, 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #a78bfa;
+}
+
 .node-you-tag {
   background: #7c3aed;
   color: #ffffff;
@@ -556,6 +574,15 @@
   font-family: ui-monospace, 'JetBrains Mono', monospace;
   font-size: 10px;
   color: #79769e;
+}
+
+.ranking-footer-credit {
+  font-family: 'Space Grotesk', ui-monospace, sans-serif;
+  font-size: 11.5px;
+  color: #c4b5fd;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
 }
 
 @media (max-width: 650px) {

@@ -29,20 +29,20 @@ async def register_player(req: PlayerRegisterRequest, db: Session = Depends(get_
     else:
         session = get_or_create_active_session(db)
 
-    # Check for duplicate player name within the same session (case-insensitive)
+    # Check for duplicate player name within the same session (case-sensitive)
     existing_player = (
         db.query(Player)
         .filter(
             Player.session_id == session.id,
-            func.lower(Player.name) == clean_name.lower(),
+            Player.name == clean_name,
         )
         .first()
     )
 
-    if existing_player:
+    if existing_player and existing_player.name == clean_name:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail=f"Codename '{clean_name}' is already taken in this session. Choose a different name.",
+            detail=f"Codename '{clean_name}' is already taken. Choose a different name.",
         )
 
     # Create new player

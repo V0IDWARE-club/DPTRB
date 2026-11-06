@@ -37,7 +37,7 @@ class GameSession(Base):
 class Player(Base):
     __tablename__ = "players"
 
-    id = Column(String(64), primary_key=True, default=lambda: f"0x{uuid.uuid4().hex[:6].upper()}")
+    id = Column(String(64), primary_key=True, default=lambda: str(uuid.uuid4()))
     session_id = Column(String(64), ForeignKey("game_sessions.id", ondelete="CASCADE"), nullable=False)
     name = Column(String(64), nullable=False)
     joined_at = Column(DateTime, default=utc_now, nullable=False)

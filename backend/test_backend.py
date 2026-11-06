@@ -58,13 +58,18 @@ class TestButtonPanicBackend(unittest.TestCase):
         self.assertEqual(player_data["name"], "Cyber_Neo")
         player_id = player_data["id"]
 
-        # Duplicate registration (same casing)
+        # Duplicate registration (same casing) - rejected
         res_dup = self.client.post("/api/players/register", json={"name": "Cyber_Neo"})
         self.assertEqual(res_dup.status_code, 409)
 
-        # Duplicate registration (different casing - case-insensitive check)
-        res_dup_case = self.client.post("/api/players/register", json={"name": "cyber_neo"})
-        self.assertEqual(res_dup_case.status_code, 409)
+        # Case-sensitive check: different casing (e.g. cyber_neo vs Cyber_Neo) must be ALLOWED as different user
+        res_diff_case = self.client.post("/api/players/register", json={"name": "cyber_neo"})
+        self.assertEqual(res_diff_case.status_code, 201)
+        self.assertEqual(res_diff_case.json()["name"], "cyber_neo")
+
+        # Duplicate of cyber_neo must be rejected
+        res_diff_case_dup = self.client.post("/api/players/register", json={"name": "cyber_neo"})
+        self.assertEqual(res_diff_case_dup.status_code, 409)
 
         # Another unique player
         res2 = self.client.post("/api/players/register", json={"name": "Quantum_Ghost"})
@@ -73,7 +78,7 @@ class TestButtonPanicBackend(unittest.TestCase):
         # Check registered players list
         res_list = self.client.get("/api/players")
         self.assertEqual(res_list.status_code, 200)
-        self.assertEqual(len(res_list.json()), 2)
+        self.assertEqual(len(res_list.json()), 3)
 
     def test_results_and_leaderboard_flow(self):
         # Register 4 players
@@ -120,7 +125,7 @@ class TestButtonPanicBackend(unittest.TestCase):
                 "best_streak": 19,
                 "accuracy": 98.0,
                 "average_reaction_time": 290.0,
-                "remaining_lives": 3,
+                "remaining_lives": 4,
             },
         )
         self.assertEqual(res_p3.status_code, 200)

@@ -32,6 +32,7 @@ export const Game: React.FC<GameProps> = ({
   // Arena & Balls refs for 60fps canvas/DOM render
   const arenaRef = useRef<HTMLDivElement>(null);
   const ballsRef = useRef<BallPhysics[]>([]);
+  const [balls, setBalls] = useState<BallPhysics[]>([]);
   const ballElementsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const animationFrameRef = useRef<number>(0);
   const previousTimeRef = useRef<number>(0);
@@ -61,7 +62,7 @@ export const Game: React.FC<GameProps> = ({
         // Save result locally to avoid re-play creation on refresh
         localStorage.setItem(`voidware_result_${player.id}`, JSON.stringify(result));
         onFinishGame(result);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Error submitting game result:", err);
         // Fallback local result display if network fails
         const fallbackResult: PlayerResult = {
@@ -102,6 +103,7 @@ export const Game: React.FC<GameProps> = ({
     // Initialize arena balls
     const arenaSize = arenaRef.current?.clientWidth || 440;
     ballsRef.current = initializeBalls(arenaSize);
+    setBalls(ballsRef.current);
 
     // Physics animation loop
     const animate = (timestamp: number) => {
@@ -145,8 +147,8 @@ export const Game: React.FC<GameProps> = ({
 
   const directive = gameState?.currentDirective;
   const score = gameState?.score ?? 0;
-  const timeLeft = gameState?.timeLeft ?? 30.0;
-  const lives = gameState?.lives ?? 3;
+  const timeLeft = gameState?.timeLeft ?? 45.0;
+  const lives = gameState?.lives ?? 4;
   const streak = gameState?.streak ?? 0;
   const speedMult = gameState?.speedMultiplier ?? 1.0;
   const lastDelta = gameState?.lastHitDelta ?? 0;
@@ -182,7 +184,7 @@ export const Game: React.FC<GameProps> = ({
           <div className="game-stat-card">
             <div className="stat-card-header">
               <span className="stat-label">TIME REMAINING</span>
-              <span className="stat-meta">30.0s MAX</span>
+              <span className="stat-meta">45.0s MAX</span>
             </div>
             <div className="stat-card-value">
               <strong>{timeLeft.toFixed(1)}</strong>{" "}
@@ -191,7 +193,7 @@ export const Game: React.FC<GameProps> = ({
             <div className="stat-bar-track">
               <div
                 className="stat-bar-fill timer-fill"
-                style={{ width: `${(timeLeft / 30.0) * 100}%` }}
+                style={{ width: `${(timeLeft / 45.0) * 100}%` }}
               ></div>
             </div>
           </div>
@@ -200,10 +202,10 @@ export const Game: React.FC<GameProps> = ({
           <div className="game-stat-card">
             <div className="stat-card-header">
               <span className="stat-label">NEURAL CORES</span>
-              <span className="stat-meta">{lives}/3 ACTIVE</span>
+              <span className="stat-meta">{lives}/4 ACTIVE</span>
             </div>
             <div className="cores-badges-row">
-              {[0, 1, 2].map((idx) => {
+              {[0, 1, 2, 3].map((idx) => {
                 const isActive = idx < lives;
                 return (
                   <div
@@ -303,7 +305,7 @@ export const Game: React.FC<GameProps> = ({
             </div>
 
             {/* 6 Bouncing Color Balls */}
-            {ballsRef.current.map((ball, idx) => (
+            {balls.map((ball, idx) => (
               <button
                 key={ball.color.name}
                 ref={(el) => {
