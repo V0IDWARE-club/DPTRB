@@ -1,5 +1,28 @@
 type SocketListener = (data: any) => void;
 
+function getWebSocketUrl(): string {
+  const envWsUrl = (import.meta.env.VITE_WS_URL as string | undefined)?.trim();
+  if (envWsUrl) {
+    const clean = envWsUrl.replace(/\/+$/, "");
+    return clean.endsWith("/ws") ? clean : `${clean}/ws`;
+  }
+
+  const envApiUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
+  if (envApiUrl) {
+    // Convert http(s) to ws(s) and strip /api suffix
+    const wsBase = envApiUrl
+      .replace(/^http:\/\//i, "ws://")
+      .replace(/^https:\/\//i, "wss://")
+      .replace(/\/+$/, "")
+      .replace(/\/api$/i, "");
+    return `${wsBase}/ws`;
+  }
+
+  const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+  const host = window.location.host;
+  return `${protocol}//${host}/ws`;
+}
+
 class SocketService {
   private ws: WebSocket | null = null;
   private listeners: Map<string, Set<SocketListener>> = new Map();
@@ -13,9 +36,7 @@ class SocketService {
     }
 
     this.isExplicitlyClosed = false;
-    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const host = window.location.host;
-    const url = `${protocol}//${host}/ws`;
+    const url = getWebSocketUrl();
 
     try {
       this.ws = new WebSocket(url);
