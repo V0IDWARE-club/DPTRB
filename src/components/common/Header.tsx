@@ -40,7 +40,6 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="void-title-group">
           <div className="void-brand-row">
             <span className="void-brand-name">VOIDWARE</span>
-            <span className="void-tag-pill">CS CLUB</span>
           </div>
           <span className="void-sub-protocol">
             BUTTON PANIC // PROTOCOL

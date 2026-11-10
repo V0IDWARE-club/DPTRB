@@ -70,7 +70,7 @@ export const UserScore: React.FC<UserScoreProps> = ({
     <div className="score-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-120s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
 
@@ -173,14 +173,14 @@ export const UserScore: React.FC<UserScoreProps> = ({
                 <span className="substat-icon">♥</span>
               </div>
               <div className="substat-cores-dots">
-                {[0, 1, 2, 3].map((idx) => (
+                {[0, 1, 2, 3, 4, 5].map((idx) => (
                   <span
                     key={idx}
                     className={`core-circle ${idx < lives ? "intact" : "lost"}`}
                   ></span>
                 ))}
               </div>
-              <div className="substat-sublabel">{lives}/4 CORES INTACT</div>
+              <div className="substat-sublabel">{lives}/6 CORES INTACT</div>
             </div>
           </div>
 

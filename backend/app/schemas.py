@@ -27,7 +27,7 @@ class ResultSubmitRequest(BaseModel):
     best_streak: int = Field(ge=0, default=0)
     accuracy: float = Field(ge=0.0, le=100.0, default=100.0)
     average_reaction_time: float = Field(ge=0.0, default=350.0)
-    remaining_lives: int = Field(ge=0, le=4, default=0)
+    remaining_lives: int = Field(ge=0, le=6, default=0)
 
 
 class PlayerResultDetail(BaseModel):

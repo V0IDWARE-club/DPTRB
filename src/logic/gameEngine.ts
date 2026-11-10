@@ -160,9 +160,9 @@ export class GameEngine {
     return {
       status: "idle",
       score: 0,
-      lives: 4,
-      maxLives: 4,
-      timeLeft: 45.0,
+      lives: 6,
+      maxLives: 6,
+      timeLeft: 120.0,
       streak: 0,
       bestStreak: 0,
       correctHits: 0,
@@ -188,9 +188,9 @@ export class GameEngine {
     };
     this.onStateChange({ ...this.state });
 
-    // 45s game timer countdown (0.1s resolution)
+    // 120s (2 min) game timer countdown (0.1s resolution)
     const startTime = performance.now();
-    const durationMs = 45000;
+    const durationMs = 120000;
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {

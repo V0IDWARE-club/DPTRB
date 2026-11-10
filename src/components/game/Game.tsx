@@ -147,8 +147,8 @@ export const Game: React.FC<GameProps> = ({
 
   const directive = gameState?.currentDirective;
   const score = gameState?.score ?? 0;
-  const timeLeft = gameState?.timeLeft ?? 45.0;
-  const lives = gameState?.lives ?? 4;
+  const timeLeft = gameState?.timeLeft ?? 120.0;
+  const lives = gameState?.lives ?? 6;
   const streak = gameState?.streak ?? 0;
   const speedMult = gameState?.speedMultiplier ?? 1.0;
   const lastDelta = gameState?.lastHitDelta ?? 0;
@@ -184,7 +184,7 @@ export const Game: React.FC<GameProps> = ({
           <div className="game-stat-card">
             <div className="stat-card-header">
               <span className="stat-label">TIME REMAINING</span>
-              <span className="stat-meta">45.0s MAX</span>
+              <span className="stat-meta">120.0s (2M) MAX</span>
             </div>
             <div className="stat-card-value">
               <strong>{timeLeft.toFixed(1)}</strong>{" "}
@@ -193,7 +193,7 @@ export const Game: React.FC<GameProps> = ({
             <div className="stat-bar-track">
               <div
                 className="stat-bar-fill timer-fill"
-                style={{ width: `${(timeLeft / 45.0) * 100}%` }}
+                style={{ width: `${(timeLeft / 120.0) * 100}%` }}
               ></div>
             </div>
           </div>
@@ -202,10 +202,10 @@ export const Game: React.FC<GameProps> = ({
           <div className="game-stat-card">
             <div className="stat-card-header">
               <span className="stat-label">NEURAL CORES</span>
-              <span className="stat-meta">{lives}/4 ACTIVE</span>
+              <span className="stat-meta">{lives}/6 ACTIVE</span>
             </div>
             <div className="cores-badges-row">
-              {[0, 1, 2, 3].map((idx) => {
+              {[0, 1, 2, 3, 4, 5].map((idx) => {
                 const isActive = idx < lives;
                 return (
                   <div

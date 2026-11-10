@@ -63,7 +63,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
     <div className="welcome-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-120s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
       <div className="bg-coord coord-bc">// CS_CLUB_2025</div>
@@ -181,14 +181,14 @@ export const Welcome: React.FC<WelcomeProps> = ({
               <div className="rule-item">
                 <span className="rule-num">01</span>
                 <div>
-                  <strong>45 SECONDS ROUND:</strong> You have 45 seconds to score as many points as possible.
+                  <strong>2 MINUTES ROUND:</strong> You have 2 minutes (120 seconds) to score as many points as possible.
                 </div>
               </div>
 
               <div className="rule-item">
                 <span className="rule-num">02</span>
                 <div>
-                  <strong>4 NEURAL CORES (LIVES):</strong> Each mistake burns 1 core. Losing all 4 cores ends the game.
+                  <strong>6 NEURAL CORES (LIVES):</strong> Each mistake burns 1 core. Losing all 6 cores ends the game.
                 </div>
               </div>
 
@@ -215,9 +215,9 @@ export const Welcome: React.FC<WelcomeProps> = ({
       )}
 
       <footer className="welcome-bottom-spec">
-        <div className="spec-item">ROUND: 45 SEC</div>
+        <div className="spec-item">ROUND: 2 MIN (120S)</div>
         <div className="spec-dot">•</div>
-        <div className="spec-item">LIVES: 4 CORES</div>
+        <div className="spec-item">LIVES: 6 CORES</div>
         <div className="spec-dot">•</div>
         <div className="spec-item">MODES: CLICK / DON'T</div>
         <div className="spec-dot">•</div>

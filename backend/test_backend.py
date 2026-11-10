@@ -125,7 +125,7 @@ class TestButtonPanicBackend(unittest.TestCase):
                 "best_streak": 19,
                 "accuracy": 98.0,
                 "average_reaction_time": 290.0,
-                "remaining_lives": 4,
+                "remaining_lives": 6,
             },
         )
         self.assertEqual(res_p3.status_code, 200)

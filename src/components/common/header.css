@@ -80,8 +80,9 @@
 .void-header-right {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .void-pill {
@@ -138,17 +139,23 @@
 .void-btn-hall-of-fame {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  height: 34px;
   background: rgba(139, 92, 246, 0.15);
   border: 1px solid rgba(139, 92, 246, 0.45);
   color: #c4b5fd;
-  padding: 6px 12px;
+  padding: 0 12px;
   border-radius: 6px;
   font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  line-height: 1;
   transition: all 0.2s ease;
 }
 
@@ -164,14 +171,18 @@
   background: rgba(18, 15, 45, 0.8);
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: #e2e0f5;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 6px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 14px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  padding: 0;
   transition: all 0.2s ease;
 }
 
@@ -186,17 +197,87 @@
 
 @media (max-width: 768px) {
   .void-header {
-    padding: 10px 14px;
+    padding: 8px 12px;
+    min-height: 48px;
+  }
+  .void-header-left {
+    gap: 10px;
+  }
+  .void-logo-box {
+    width: 32px;
+    height: 32px;
+  }
+  .void-logo-img {
+    width: 22px;
+    height: 22px;
   }
   .void-brand-name {
-    font-size: 15px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
   }
   .void-sub-protocol,
-  .void-status-badge {
+  .void-status-badge,
+  .void-tag-pill {
     display: none;
+  }
+  .void-header-right {
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+  .void-btn-hall-of-fame {
+    height: 32px;
+    padding: 0 9px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    gap: 4px;
+  }
+  .void-btn-sound {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
   }
   .void-op-badge {
     font-size: 10px;
-    padding: 4px 8px;
+    padding: 3px 6px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .void-header {
+    padding: 6px 10px;
+    min-height: 44px;
+  }
+  .void-header-left {
+    gap: 8px;
+  }
+  .void-logo-box {
+    width: 30px;
+    height: 30px;
+  }
+  .void-logo-img {
+    width: 20px;
+    height: 20px;
+  }
+  .void-brand-name {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .void-header-right {
+    gap: 5px;
+  }
+  .void-btn-hall-of-fame {
+    height: 30px;
+    padding: 0 7px;
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+  .void-btn-sound {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
   }
 }

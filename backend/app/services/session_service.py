@@ -100,7 +100,7 @@ async def _run_countdown(session_id: str, duration_seconds: int):
             "type": "GAME_START",
             "session_id": session_id,
             "started_at": datetime.now(timezone.utc).isoformat(),
-            "round_duration": 45,
+            "round_duration": 120,
         })
     except asyncio.CancelledError:
         pass

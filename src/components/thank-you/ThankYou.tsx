@@ -20,7 +20,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
     <div className="thankyou-container">
       {/* Background sci-fi coordinates */}
       <div className="bg-coord coord-tl">01010110 // VOID</div>
-      <div className="bg-coord coord-tr">&lt;panic_event loop-45s&gt;</div>
+      <div className="bg-coord coord-tr">&lt;panic_event loop-120s&gt;</div>
       <div className="bg-coord coord-bl">REFLEX_TICK::0x9B6DFF</div>
       <div className="bg-coord coord-br">11001001_NODE</div>
       <div className="bg-coord coord-bc">// CS_CLUB_2025</div>
